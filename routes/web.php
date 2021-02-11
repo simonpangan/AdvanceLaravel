@@ -23,3 +23,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::get('/pay', [App\Http\Controllers\PayOrderController::class, 'store']);
+
+Route::get('/channels', [App\Http\Controllers\ChannelController::class, 'index'])->name('channel.index');
+Route::get('/post', [App\Http\Controllers\PostController::class, 'create']);
