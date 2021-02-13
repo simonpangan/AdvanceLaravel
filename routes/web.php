@@ -170,7 +170,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Route::get('/customer/{customerID}/delete', [App\Http\Controllers\CustomerController::class, 'destroy']);
 
 //version 2
-Route::get('/customer', [App\Http\Controllers\Customer2Controller::class, 'index']);
-Route::get('/customer/{customerID}', [App\Http\Controllers\Customer2Controller::class, 'show']);
-Route::get('/customer/{customerID}/update', [App\Http\Controllers\Customer2Controller::class, 'update']);
-Route::get('/customer/{customerID}/delete', [App\Http\Controllers\Customer2Controller::class, 'destroy']);
+// Route::get('/customer', [App\Http\Controllers\Customer2Controller::class, 'index']);
+// Route::get('/customer/{customerID}', [App\Http\Controllers\Customer2Controller::class, 'show']);
+// Route::get('/customer/{customerID}/update', [App\Http\Controllers\Customer2Controller::class, 'update']);
+// Route::get('/customer/{customerID}/delete', [App\Http\Controllers\Customer2Controller::class, 'destroy']);
+
+//version 3
+Route::get('/customer', [App\Http\Controllers\Customer3Controller::class, 'index']);
+
+Route::get('/customerarray', [App\Http\Controllers\Customer3Controller::class, 'samplearray']);
