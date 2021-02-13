@@ -8,22 +8,22 @@ use App\Repositories\CustomerRepository;
 
 class CustomerController extends Controller
 {
-    private $customerRepository;
+    private CustomerRepositoryInterface $customerRepository;
     
     // public function __construct(CustomerRepository $customerRepository)
     // { 
     //     $this->customerRepository = $customerRepository;
     // }
 
-    // public function __construct(CustomerRepositoryInterface $customerRepository)
-    // { 
-    //     $this->customerRepository = $customerRepository;
-    // }
-
-    public function __construct()
+    public function __construct(CustomerRepositoryInterface $customerRepository)
     { 
-        $this->customerRepository = new CustomerRepository();
+        $this->customerRepository = $customerRepository;
     }
+
+    // public function __construct()
+    // { 
+    //     $this->customerRepository = new CustomerRepository();
+    // }
 
     public function index()
     {

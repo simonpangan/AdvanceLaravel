@@ -25,5 +25,9 @@ class RepositoriesServiceProvider extends ServiceProvider
     {
        $this->app->bind(\App\Repositories\CustomerRepositoryInterface::class,
         \App\Repositories\CustomerRepository::class);
+
+        $this->app->bind(\App\Repositories2\RepositoryInterface::class, function($app) {
+            return new  \App\Repositories2\Repository( new \App\Models\Customer());     
+        });
     }
 }
