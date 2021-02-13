@@ -179,3 +179,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/customer', [App\Http\Controllers\Customer3Controller::class, 'index']);
 
 Route::get('/customerarray', [App\Http\Controllers\Customer3Controller::class, 'samplearray']);
+
+//pipeline
+Route::get('/piple', [App\Http\Controllers\PostController::class, 'index']);
+// Route::get('/piple?{query}', [App\Http\Controllers\PostController::class, 'index']);
+
