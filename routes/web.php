@@ -184,3 +184,45 @@ Route::get('/customerarray', [App\Http\Controllers\Customer3Controller::class, '
 Route::get('/piple', [App\Http\Controllers\PostController::class, 'index']);
 // Route::get('/piple?{query}', [App\Http\Controllers\PostController::class, 'index']);
 
+//polymorphic relationship
+
+
+Use App\Models\Post;
+Use App\Models\Image;
+Route::get('/polyOnetoOne', function () {
+  $post = Post::first();
+
+  $post->image()->create(['url' => 'some/image.jpg']);  
+
+  $user = User::first();
+
+  $user->image()->create(['url' => 'some/image.jpg']);  
+
+
+  $find = Image::find(1);//->imageable;
+
+  return $find;
+
+});
+Use App\Models\Video;
+Route::get('/polyOnetoMany', function () {
+    $post = Post::first();
+  
+    // $post->comments()->create(['body' => 'FIRST COOL COMMENT']);  
+    // $post->comments()->create(['body' => 'FIRST COOL COMMENT']);  
+  
+
+    // $video = Video::first();
+    // $video->comments()->create(['body' => 'FIRST COOL COMMENT']);  
+    // $video->comments()->create(['body' => 'FIRST COOL COMMENT']);
+});
+
+Use App\Models\Tags;
+Route::get('/polyManytoMany', function () {
+    $post = Post::first();
+    $post->tags()->create(['name' => 'pogi']);
+
+    $post = Video::first();
+      $post->tags()->create(['name' => 'php']);
+    $post->tags()->attach(1); //existing
+});
