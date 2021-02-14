@@ -243,3 +243,12 @@ Route::get('/postcardsFacades' , function() {
     //will call the hello in the servuce class && Post card facades
     // binded in the app service provider
 });
+
+
+//Macro
+use Illuminate\Support\Str;
+Route::get('/macro' , function() {
+    dd(Str::partNumber('123412412412'));
+    dd(Str::prefix('123412412412','AVCD-'));
+    return Response::errorJson('A HUGE ');
+});
