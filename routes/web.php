@@ -226,3 +226,20 @@ Route::get('/polyManytoMany', function () {
       $post->tags()->create(['name' => 'php']);
     $post->tags()->attach(1); //existing
 });
+
+
+use App\Service\PostcardSendingService;
+Route::get('/postcards' , function() {
+     $postcardService = new PostcardSendingService('USA', 4, 6);
+     $postcardService->hello('Hello from Simon Pangan', 'simonpangan@yahoo.com');
+
+});
+
+//-- BOTH DO EXACTLY THE SAME
+
+use App\Facades\Postcard;
+Route::get('/postcardsFacades' , function() {
+    Postcard::hello('Hello from Simon Pangan', 'simonpangan@yahoo.com'); 
+    //will call the hello in the servuce class && Post card facades
+    // binded in the app service provider
+});
